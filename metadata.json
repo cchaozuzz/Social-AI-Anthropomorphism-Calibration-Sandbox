@@ -1,0 +1,7 @@
+{
+  "name": "Social AI Anthropomorphism Calibration Sandbox",
+  "description": "A sandbox to explore the Cue-Perception-Relation (CPR) Model for AI agents.",
+  "requestFramePermissions": [
+    "microphone"
+  ]
+}
