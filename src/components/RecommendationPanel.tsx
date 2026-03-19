@@ -42,19 +42,17 @@ export const RecommendationPanel: React.FC<RecommendationPanelProps> = ({ config
   const rec = getRecommendation();
 
   return (
-    <div className={`p-6 rounded-2xl border ${rec.color} transition-colors duration-500`}>
-      <div className="flex items-start space-x-4">
-        <div className={`p-3 bg-white rounded-full shadow-sm ${rec.iconColor}`}>
-          <Lightbulb size={24} />
+    <div className={`w-72 h-auto min-h-[320px] p-5 rounded-2xl border shadow-lg flex flex-col ${rec.color} transition-colors duration-500`}>
+      <div className="flex items-center space-x-3 mb-4 shrink-0">
+        <div className={`p-2 bg-white rounded-full shadow-sm ${rec.iconColor}`}>
+          <Lightbulb size={20} />
         </div>
-        <div>
-          <h3 className="text-lg font-bold mb-2">{rec.title}</h3>
-          <p className="text-sm mb-4 leading-relaxed">{rec.description}</p>
-          <div className="flex items-start space-x-2 bg-white/50 p-3 rounded-lg">
-            <Info size={16} className="mt-0.5 shrink-0" />
-            <p className="text-xs font-medium leading-relaxed">{rec.principle}</p>
-          </div>
-        </div>
+        <h3 className="text-base font-bold leading-tight">{rec.title}</h3>
+      </div>
+      <p className="text-sm mb-4 leading-relaxed">{rec.description}</p>
+      <div className="flex items-start space-x-2 bg-white/50 p-3 rounded-lg mt-auto shrink-0">
+        <Info size={16} className="mt-0.5 shrink-0" />
+        <p className="text-xs font-medium leading-snug">{rec.principle}</p>
       </div>
     </div>
   );

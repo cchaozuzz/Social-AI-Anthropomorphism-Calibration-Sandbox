@@ -124,37 +124,37 @@ export const PreviewPanel: React.FC<PreviewPanelProps> = ({ config }) => {
   const { name, role } = getIdentityDetails();
 
   return (
-    <div className="w-full h-full flex items-center justify-center bg-gray-100 p-4 overflow-y-auto">
+    <div className="w-full h-full flex items-center justify-center">
       {/* Phone Mockup Container */}
-      <div className="w-[380px] h-[800px] bg-[#fafafa] rounded-[3rem] shadow-2xl border-[12px] border-gray-900 overflow-hidden flex flex-col relative shrink-0">
+      <div className="w-[320px] h-[600px] sm:w-[340px] sm:h-[650px] bg-[#fafafa] rounded-[2.5rem] shadow-2xl border-[8px] sm:border-[10px] border-gray-900 overflow-hidden flex flex-col relative shrink-0">
         
         {/* Top Header Area */}
-        <div className="flex items-center px-6 pt-12 pb-2 space-x-4 z-10">
-          <div className="w-14 h-14 flex items-center justify-center text-3xl bg-white rounded-full shadow-sm border border-gray-100 transition-all duration-500">
+        <div className="flex items-center px-5 pt-8 pb-2 space-x-3 z-10">
+          <div className="w-12 h-12 flex items-center justify-center text-2xl bg-white rounded-full shadow-sm border border-gray-100 transition-all duration-500 shrink-0">
             {getAvatarEmoji()}
           </div>
-          <div className="flex items-center space-x-2">
-            <h2 className="text-xl font-medium text-gray-800 tracking-tight">
+          <div className="flex items-center space-x-2 overflow-hidden">
+            <h2 className="text-lg font-medium text-gray-800 tracking-tight truncate">
               {name}
             </h2>
-            <span className="px-2.5 py-1 bg-gray-200/80 text-gray-700 text-[11px] rounded-md font-medium">
+            <span className="px-2 py-0.5 bg-gray-200/80 text-gray-700 text-[10px] rounded-md font-medium whitespace-nowrap">
               as your {role}
             </span>
           </div>
         </div>
 
         {/* Voice Visualizer Area */}
-        <div className="flex-1 flex items-center justify-center relative min-h-[300px]">
-          <div className="z-10 scale-125">
+        <div className="flex-1 flex items-center justify-center relative min-h-[200px]">
+          <div className="z-10 scale-100 sm:scale-110">
             <AudioVisualizer config={config} isActive={isSpeaking || isUserSpeaking} />
           </div>
         </div>
 
         {/* Bottom Sections */}
-        <div className="px-6 pb-8 flex flex-col z-10">
+        <div className="px-5 pb-6 flex flex-col z-10">
           
           {/* Text Area (Chat & Input) */}
-          <div className="h-56 flex flex-col mb-4">
+          <div className="h-48 flex flex-col mb-3">
             <div className="flex-1 overflow-y-auto flex flex-col space-y-3 mb-3 pr-1" style={{ scrollbarWidth: 'none' }}>
               {messages.length === 0 && !isCallActive && (
                 <div className="text-center text-gray-400 text-sm mt-10">

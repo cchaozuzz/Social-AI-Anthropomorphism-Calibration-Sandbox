@@ -13,8 +13,8 @@ export default function App() {
   });
 
   return (
-    <div className="min-h-screen bg-gray-100 flex flex-col font-sans">
-      <header className="bg-white border-b border-gray-200 px-6 py-4 flex items-center justify-between shadow-sm z-10">
+    <div className="h-screen bg-[#FAF9F5] flex flex-col font-sans overflow-hidden">
+      <header className="bg-white border-b border-gray-200 px-6 py-4 flex items-center justify-between shadow-sm z-10 shrink-0">
         <div>
           <h1 className="text-xl font-bold text-gray-900 tracking-tight">Social AI Anthropomorphism Calibration Sandbox</h1>
           <p className="text-sm text-gray-500 font-medium">Cue-Perception-Relation (CPR) Model Explorer</p>
@@ -25,19 +25,21 @@ export default function App() {
         </div>
       </header>
 
-      <main className="flex-1 flex flex-col lg:flex-row overflow-hidden">
+      <main className="flex-1 flex overflow-hidden">
         {/* Left Side: Preview */}
-        <div className="flex-1 lg:w-1/2 flex flex-col h-full bg-gray-50">
-          <div className="flex-1 overflow-hidden relative shadow-inner">
-            <PreviewPanel config={config} />
-          </div>
-          <div className="p-6 bg-white border-t border-gray-200 shadow-lg z-10">
+        <div className="flex-1 h-full bg-gray-50 flex items-end p-6 gap-6 overflow-x-auto shadow-inner">
+          <div className="z-10 shrink-0">
             <RecommendationPanel config={config} />
           </div>
+          <div className="flex-1 h-full flex items-center justify-center min-w-[340px]">
+            <PreviewPanel config={config} />
+          </div>
+          {/* Spacer to perfectly center the phone on very large screens */}
+          <div className="w-72 shrink-0 hidden 2xl:block pointer-events-none"></div>
         </div>
 
         {/* Right Side: Control Panel */}
-        <div className="w-full lg:w-[400px] xl:w-[480px] bg-white border-l border-gray-200 shadow-xl z-20">
+        <div className="w-[600px] bg-white border-l border-gray-200 shadow-xl z-20 shrink-0 overflow-hidden">
           <ControlPanel config={config} setConfig={setConfig} />
         </div>
       </main>
